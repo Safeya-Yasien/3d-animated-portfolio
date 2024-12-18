@@ -1,7 +1,25 @@
+import { Contact, Hero, Portfolio, Services } from "./components";
+
 const App = () => {
   return (
-    <div className=''>Hello World</div>
-  )
-}
+    <div className=" container">
+      <section className="">
+        <Hero />
+      </section>
+      <section className="bg-orange-400">
+      <Services />
+        
+      </section>
+      <section className="bg-yellow-400">
+      <Portfolio />
 
-export default App
+      </section>
+      <section className="bg-green-400">
+      <Contact />
+
+      </section>
+    </div>
+  );
+};
+
+export default App;
