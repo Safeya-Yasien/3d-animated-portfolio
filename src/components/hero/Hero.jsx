@@ -1,6 +1,8 @@
 import { animate } from "motion";
 import Speech from "./Speech";
 import { motion } from "motion/react";
+import Shape from "./Shape";
+import { Canvas } from "@react-three/fiber";
 
 const awardVariants = {
   initial: {
@@ -36,7 +38,7 @@ const Hero = () => {
       {/* <div className="absolute inset-0 z-[-1] bg-cover bg-center"></div> */}
 
       {/* Left Section */}
-      <div className="left flex h-full w-full flex-col items-center gap-9 text-center md:text-start md:w-1/2 md:items-start md:justify-between">
+      <div className="left flex h-full w-full flex-col items-center gap-9 text-center md:w-1/2 md:items-start md:justify-between md:text-start">
         {/* TITLE */}
         <motion.h1
           className="hTitle mt-[50px] text-[48px] text-pink-500 md:text-[48px] lg:text-[72px] xl:text-[88px] 2xl:text-[72px]"
@@ -67,7 +69,7 @@ const Hero = () => {
           </motion.p>
 
           {/* awards list */}
-          <motion.div className="awardList flex items-center justify-center gap-2 md:items-start md:justify-start ">
+          <motion.div className="awardList flex items-center justify-center gap-2 md:items-start md:justify-start">
             <motion.img
               variants={awardVariants}
               src="/award1.png"
@@ -124,7 +126,7 @@ const Hero = () => {
       </div>
 
       {/* Right Section */}
-      <div className="right flex h-full w-full md:w-1/2 flex-col items-end justify-end md:justify-between">
+      <div className="right flex h-full w-full flex-col items-end justify-end md:w-1/2 md:justify-between">
         {/* FOLLOW */}
         <motion.div
           variants={followVariants}
@@ -228,6 +230,9 @@ const Hero = () => {
 
       {/* canvas */}
       <div className="absolute left-0 top-0 z-[-1] h-full w-full bg-cover bg-center md:bottom-0">
+        <Canvas>
+          <Shape />
+        </Canvas>
         {/* Background Image */}
         <div className="absolute bottom-0 left-0 right-0 m-auto h-[80%] max-w-max">
           <img
