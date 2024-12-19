@@ -1,8 +1,8 @@
-import { animate } from "motion";
 import Speech from "./Speech";
 import { motion } from "motion/react";
 import Shape from "./Shape";
 import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
 
 const awardVariants = {
   initial: {
@@ -135,16 +135,27 @@ const Hero = () => {
           animate="animate"
           className="follow hidden flex-col gap-3 rounded-br-[10px] bg-[#2f204e] p-4 md:flex"
           aria-label="Follow me on social media"
-
         >
           <div className="flex flex-col gap-3">
-          <motion.a variants={followVariants} href="/" aria-label="Follow me on Instagram">
-          <img src="/instagram.png" alt="Instagram" className="h-5 w-5" />
+            <motion.a
+              variants={followVariants}
+              href="/"
+              aria-label="Follow me on Instagram"
+            >
+              <img src="/instagram.png" alt="Instagram" className="h-5 w-5" />
             </motion.a>
-            <motion.a variants={followVariants} href="/" aria-label="Follow me on Facebook">
+            <motion.a
+              variants={followVariants}
+              href="/"
+              aria-label="Follow me on Facebook"
+            >
               <img src="/facebook.png" alt="Facebook" className="h-5 w-5" />
             </motion.a>
-            <motion.a variants={followVariants} href="/" aria-label="Follow me on YouTube">
+            <motion.a
+              variants={followVariants}
+              href="/"
+              aria-label="Follow me on YouTube"
+            >
               <img src="/youtube.png" alt="YouTube" className="h-5 w-5" />
             </motion.a>
           </div>
@@ -234,7 +245,9 @@ const Hero = () => {
       {/* canvas */}
       <div className="absolute left-0 top-0 z-[-1] h-full w-full bg-cover bg-center md:bottom-0">
         <Canvas>
-          <Shape />
+          <Suspense fallback="loading...">
+            <Shape />
+          </Suspense>
         </Canvas>
         {/* Background Image */}
         <div className="absolute bottom-0 left-0 right-0 m-auto h-[80%] max-w-max">
