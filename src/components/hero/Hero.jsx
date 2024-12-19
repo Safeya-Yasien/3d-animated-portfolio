@@ -101,6 +101,7 @@ const Hero = () => {
           }}
           href="#services"
           className="mb-[50px] w-max"
+          aria-label="Scroll down to services section"
         >
           <svg
             width="50px"
@@ -133,15 +134,17 @@ const Hero = () => {
           initial="initial"
           animate="animate"
           className="follow hidden flex-col gap-3 rounded-br-[10px] bg-[#2f204e] p-4 md:flex"
+          aria-label="Follow me on social media"
+
         >
           <div className="flex flex-col gap-3">
-            <motion.a variants={followVariants} href="/">
-              <img src="/instagram.png" alt="Instagram" className="h-5 w-5" />
+          <motion.a variants={followVariants} href="/" aria-label="Follow me on Instagram">
+          <img src="/instagram.png" alt="Instagram" className="h-5 w-5" />
             </motion.a>
-            <motion.a variants={followVariants} href="/">
+            <motion.a variants={followVariants} href="/" aria-label="Follow me on Facebook">
               <img src="/facebook.png" alt="Facebook" className="h-5 w-5" />
             </motion.a>
-            <motion.a variants={followVariants} href="/">
+            <motion.a variants={followVariants} href="/" aria-label="Follow me on YouTube">
               <img src="/youtube.png" alt="YouTube" className="h-5 w-5" />
             </motion.a>
           </div>
