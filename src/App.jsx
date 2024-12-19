@@ -2,21 +2,18 @@ import { Contact, Hero, Portfolio, Services } from "./components";
 
 const App = () => {
   return (
-    <div className=" container">
+    <div className="container">
       <section className="">
         <Hero />
       </section>
-      <section className="bg-orange-400">
-      <Services />
-        
+      <section className="">
+        <Services />
       </section>
       <section className="bg-yellow-400">
-      <Portfolio />
-
+        <Portfolio />
       </section>
       <section className="bg-green-400">
-      <Contact />
-
+        <Contact />
       </section>
     </div>
   );
