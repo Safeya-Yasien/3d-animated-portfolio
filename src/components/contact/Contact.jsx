@@ -87,7 +87,7 @@ const Contact = () => {
           </motion.button>
         </motion.form>
       </div>
-      <div className="my-12 flex h-full w-full items-center justify-center rounded-[50%_0] bg-[rgba(2,2,45,0.187)] p-12 lg:w-1/2">
+      <div className="my-12 h-full w-full items-center justify-center rounded-[50%_0] bg-[rgba(2,2,45,0.187)] hidden lg:flex lg:w-1/2">
         <ContactSvg />
       </div>
     </div>
