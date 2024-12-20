@@ -29,19 +29,19 @@ const Contact = () => {
 
   return (
     <div
-    className="h-full flex flex-col lg:flex-row gap-8 lg:gap-[100px]"
-    ref={ref}
+      className="flex h-full flex-col gap-8 lg:flex-row lg:gap-[100px]"
+      ref={ref}
       onSubmit={sendEmail}
     >
-      <div className="w-full lg:w-1/2 h-full lg:p-5 flex items-center justify-center">
-      <motion.form
+      <div className="flex h-full w-full items-center justify-center lg:w-1/2 lg:p-5">
+        <motion.form
           ref={form}
           variants={listVariant}
           animate={isInView ? "animate" : "initial"}
-          className="w-full lg:w-[80%] flex flex-col gap-5 bg-[rgba(2,2,45,0.066)] lg:p-12 rounded-[50px] "
+          className="flex w-full flex-col gap-5 rounded-[50px] bg-[rgba(2,2,45,0.066)] lg:w-[80%] lg:p-12"
         >
           <motion.h1 variants={listVariant} className="text-2xl font-bold">
-          Let&apos;s keep in touch
+            Let&apos;s keep in touch
           </motion.h1>
           <motion.div
             variants={listVariant}
@@ -52,7 +52,7 @@ const Contact = () => {
               type="text"
               name="user_username"
               placeholder="John Doe"
-              className="rounded-[5px] border-none p-3 outline-none"
+              className="rounded-[5px] border-none p-3 text-black outline-none"
             />
           </motion.div>
           <motion.div
@@ -64,7 +64,7 @@ const Contact = () => {
               type="email"
               name="user_email"
               placeholder="john@gmail.com"
-              className="rounded-[5px] border-none p-3 outline-none"
+              className="rounded-[5px] border-none p-3 text-black outline-none"
             />
           </motion.div>
           <motion.div
@@ -76,18 +76,18 @@ const Contact = () => {
               rows={10}
               name="user_message"
               placeholder="Write your message..."
-              className="rounded-[5px] border-none p-3 outline-none"
+              className="rounded-[5px] border-none p-3 text-black outline-none"
             ></textarea>
           </motion.div>
           <motion.button
             variants={listVariant}
-            className="bg-[#dd4c62] text-white py-5 px-4 rounded-lg cursor-pointer"
+            className="cursor-pointer rounded-lg bg-[#dd4c62] px-4 py-5 text-white"
           >
             Send
           </motion.button>
         </motion.form>
       </div>
-      <div className="w-full  lg:w-1/2 h-full p-12 flex items-center justify-center bg-[rgba(2,2,45,0.187)] my-12 rounded-[50%_0]">
+      <div className="my-12 flex h-full w-full items-center justify-center rounded-[50%_0] bg-[rgba(2,2,45,0.187)] p-12 lg:w-1/2">
         <ContactSvg />
       </div>
     </div>
