@@ -198,6 +198,7 @@ const Hero = () => {
           }}
           href="/#contact"
           className="contactLink mb-[50px]"
+          aria-label="Go to contact section"
         >
           <motion.div
             animate={{ rotate: [0, 360] }}
