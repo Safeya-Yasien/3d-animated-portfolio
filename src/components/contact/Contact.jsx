@@ -33,12 +33,12 @@ const Contact = () => {
       ref={ref}
       onSubmit={sendEmail}
     >
-      <div className="flex h-full w-full items-center justify-center lg:w-1/2 lg:p-5">
+      <div className="flex h-full w-full items-center justify-center lg:w-1/2">
         <motion.form
           ref={form}
           variants={listVariant}
           animate={isInView ? "animate" : "initial"}
-          className="flex w-full flex-col gap-5 rounded-[50px] bg-[rgba(2,2,45,0.066)] lg:w-[80%] lg:p-12"
+          className="flex w-full flex-col gap-5 rounded-[50px] bg-[rgba(2,2,45,0.066)] lg:w-[80%] "
         >
           <motion.h1 variants={listVariant} className="text-2xl font-bold">
             Let&apos;s keep in touch
