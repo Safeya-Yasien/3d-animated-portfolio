@@ -127,10 +127,18 @@ const Portfolio = () => {
   );
 
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setContainerDistance(rect.left);
-    }
+    const calculateDistance = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        setContainerDistance(rect.left);
+      }
+    };
+
+    calculateDistance();
+    window.addEventListener("resize", calculateDistance);
+    return () => {
+      window.removeEventListener("resize", calculateDistance);
+    };
   }, []);
 
   return (
@@ -153,6 +161,7 @@ const Portfolio = () => {
       <section />
       <section />
       <section />
+      <section />
 
       <div className="pProgress sticky bottom-[80%] left-0 h-[80px] w-[80px]">
         <svg width="100%" height="100%" viewBox="0 0 160 160">
@@ -171,6 +180,7 @@ const Portfolio = () => {
             fill="none"
             stroke="#dd4c62"
             strokeWidth={20}
+            style={{ pathLength: scrollYProgress }}
             transform="rotate(-90 80 80)"
           />
         </svg>

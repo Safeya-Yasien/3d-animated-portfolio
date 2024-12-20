@@ -1,20 +1,41 @@
-import { Contact, Hero, Portfolio, Services } from "./components";
+import { lazy, Suspense } from "react";
+import LazyLoad from "react-lazy-load";
+
+
+const Hero = lazy(() => import("./components/hero/Hero"));
+const Services = lazy(() => import("./components/services/Services"));
+const Portfolio = lazy(() => import("./components/portfolio/Portfolio"));
+const Contact = lazy(() => import("./components/contact/Contact"));
 
 const App = () => {
   return (
     <div className="container">
-      <section className="">
-        <Hero />
-      </section>
-      <section className="">
-        <Services />
-      </section>
-      {/* <section className=""> */}
-        <Portfolio />
-      {/* </section> */}
-      <section className="">
-        <Contact />
-      </section>
+      <Suspense fallback={"loading..."}>
+        <LazyLoad height={"100vh"} offset={-100}>
+          <section id="#home">
+            <Hero />
+          </section>
+        </LazyLoad>
+      </Suspense>
+      <Suspense fallback={"loading..."}>
+        <LazyLoad height={"100vh"} offset={-100}>
+          <section id="#services">
+            <Services />
+          </section>
+        </LazyLoad>
+      </Suspense>
+      <Suspense fallback={"loading..."}>
+        <LazyLoad height={"600vh"} offset={-100}>
+          <Portfolio />
+        </LazyLoad>
+      </Suspense>
+      <Suspense fallback={"loading..."}>
+        <LazyLoad height={"100vh"} offset={-100}>
+          <section id="#contact">
+            <Contact />
+          </section>
+        </LazyLoad>
+      </Suspense>
     </div>
   );
 };

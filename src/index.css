@@ -44,3 +44,12 @@ section {
 .pItem:nth-child(6) {
   background: linear-gradient(to right, #12071f, transparent);
 }
+
+@media (max-width: 768px) {
+  .cSection:first-child {
+    height: 70%;
+  }
+  .cSection:last-child {
+    height: 30%;
+  }
+}

@@ -29,19 +29,19 @@ const Contact = () => {
 
   return (
     <div
-      className="contact flex h-full gap-[100px]"
-      ref={ref}
+    className="h-full flex flex-col lg:flex-row gap-8 lg:gap-[100px]"
+    ref={ref}
       onSubmit={sendEmail}
     >
-      <div className="cSection flex h-full w-1/2 items-center justify-center p-5">
-        <motion.form
+      <div className="w-full lg:w-1/2 h-full p-5 flex items-center justify-center">
+      <motion.form
           ref={form}
           variants={listVariant}
           animate={isInView ? "animate" : "initial"}
-          className="flex w-[80%] flex-col gap-5 rounded-[50px] p-[50px]"
+          className="w-4/5 flex flex-col gap-5 bg-[rgba(2,2,45,0.066)] p-12 rounded-[50px] lg:w-full"
         >
-          <motion.h1 variants={listVariant} className="cTitle">
-            Let&apos;s keep in touch
+          <motion.h1 variants={listVariant} className="text-2xl font-bold">
+          Let&apos;s keep in touch
           </motion.h1>
           <motion.div
             variants={listVariant}
@@ -81,13 +81,13 @@ const Contact = () => {
           </motion.div>
           <motion.button
             variants={listVariant}
-            className="formButton cursor-pointer rounded-[10px] border-none bg-[#dd4c62] p-5 text-white"
+            className="bg-[#dd4c62] text-white py-5 px-4 rounded-lg cursor-pointer"
           >
             Send
           </motion.button>
         </motion.form>
       </div>
-      <div className="cSection flex h-full w-1/2 flex-col justify-center p-5">
+      <div className="w-full  lg:w-1/2 h-full p-12 flex items-center justify-center bg-[rgba(2,2,45,0.187)] my-12 rounded-[50%_0]">
         <ContactSvg />
       </div>
     </div>
