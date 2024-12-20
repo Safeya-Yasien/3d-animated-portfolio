@@ -97,7 +97,7 @@ const ListItem = ({ item }) => {
       <motion.div
         variants={textVariants}
         animate={isInView ? "animate" : "initial"}
-        className="pText flex w-full lg:w-[40%] flex-col gap-6"
+        className="pText flex w-full p-3 lg:p-0 lg:w-[40%] flex-col gap-6"
       >
         <motion.h1 variants={textVariants} className="text-[30px] lg:text-[56px]">
           {item.title}
