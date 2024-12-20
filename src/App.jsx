@@ -12,7 +12,7 @@ const App = () => {
       {/* <section className=""> */}
         <Portfolio />
       {/* </section> */}
-      <section className="bg-green-400">
+      <section className="">
         <Contact />
       </section>
     </div>
