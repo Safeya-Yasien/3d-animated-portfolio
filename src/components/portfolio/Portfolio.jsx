@@ -80,13 +80,13 @@ const ListItem = ({ item }) => {
 
   return (
     <div
-      className="pItem  flex flex-col lg:flex-row h-screen w-[100vw] items-center justify-center gap-[100px] overflow-hidden"
+      className="pItem flex h-screen w-[100vw] flex-col items-center justify-center gap-[100px] overflow-hidden lg:flex-row"
       ref={ref}
     >
       <motion.div
         variants={imgVariants}
         animate={isInView ? "animate" : "initial"}
-        className="pImg w-full lg:w-[40%] overflow-hidden rounded-[20px]"
+        className="pImg w-full overflow-hidden rounded-[20px] lg:w-[40%]"
       >
         <img
           src={item.img}
@@ -97,9 +97,12 @@ const ListItem = ({ item }) => {
       <motion.div
         variants={textVariants}
         animate={isInView ? "animate" : "initial"}
-        className="pText flex w-full p-3 lg:p-0 lg:w-[40%] flex-col gap-6"
+        className="pText flex w-full flex-col gap-6 p-3 lg:w-[40%] lg:p-0"
       >
-        <motion.h1 variants={textVariants} className="text-[30px] lg:text-[56px]">
+        <motion.h1
+          variants={textVariants}
+          className="text-[30px] lg:text-[56px]"
+        >
           {item.title}
         </motion.h1>
         <motion.p variants={textVariants} className="font-light">
