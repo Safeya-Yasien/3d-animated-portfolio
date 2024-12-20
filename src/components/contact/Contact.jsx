@@ -38,7 +38,7 @@ const Contact = () => {
           ref={form}
           variants={listVariant}
           animate={isInView ? "animate" : "initial"}
-          className="w-4/5 flex flex-col gap-5 bg-[rgba(2,2,45,0.066)] p-12 rounded-[50px] lg:w-full"
+          className="w-full lg:w-[80%] flex flex-col gap-5 bg-[rgba(2,2,45,0.066)] p-12 rounded-[50px] "
         >
           <motion.h1 variants={listVariant} className="text-2xl font-bold">
           Let&apos;s keep in touch
