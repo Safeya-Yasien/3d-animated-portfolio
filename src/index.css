@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  @apply bg-gradient-to-b from-[#12071f] to-[#2f204e] text-white font-sans min-h-screen overflow-x-hidden;
+  @apply min-h-screen overflow-x-hidden bg-gradient-to-b from-[#12071f] to-[#2f204e] font-sans text-white;
 }
 
 a {
@@ -22,9 +22,25 @@ a {
 }
 
 .container {
-  @apply max-w-screen-2xl px-4 md:px-32  mx-auto;
+  @apply mx-auto max-w-screen-2xl px-4 md:px-32;
 }
 
 section {
   @apply h-screen snap-center;
+}
+
+.pItem:nth-child(3) {
+  background: linear-gradient(to right, transparent, #260622);
+}
+
+.pItem:nth-child(4) {
+  background: linear-gradient(to right, #260622, #02222e);
+}
+
+.pItem:nth-child(5) {
+  background: linear-gradient(to right, #02222e, #12071f);
+}
+
+.pItem:nth-child(6) {
+  background: linear-gradient(to right, #12071f, transparent);
 }

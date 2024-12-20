@@ -1,6 +1,182 @@
-const Portfolio = () => {
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, useScroll, useTransform } from "motion/react";
+
+const items = [
+  {
+    id: 1,
+    img: "/p1.jpg",
+    title: "Full Stack Blog Application",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
+    link: "/",
+  },
+  {
+    id: 2,
+    img: "/p2.jpg",
+    title: "School Management System",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
+    link: "/",
+  },
+  {
+    id: 3,
+    img: "/p3.jpg",
+    title: "Real-time Chat Application",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
+    link: "/",
+  },
+  {
+    id: 4,
+    img: "/p4.jpg",
+    title: "Social Media Project",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
+    link: "/",
+  },
+  {
+    id: 5,
+    img: "/p5.jpg",
+    title: "Animated Portfolio Website",
+    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure laboriosam tempore consectetur, atque maiores culpa quia, repellat id, dicta esse fugit neque voluptatem provident itaque voluptates minima. Repudiandae, provident hic.",
+    link: "/",
+  },
+];
+
+const imgVariants = {
+  initial: {
+    x: -500,
+    y: 500,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const textVariants = {
+  initial: {
+    x: 500,
+    y: 500,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const ListItem = ({ item }) => {
+  const ref = useRef();
+  const isInView = useInView(ref, { margin: "-100px" });
+
   return (
-    <div>Portfolio</div>
-  )
-}
-export default Portfolio
+    <div
+      className="pItem flex h-screen w-[100vw] items-center justify-center gap-[100px] overflow-hidden"
+      ref={ref}
+    >
+      <motion.div
+        variants={imgVariants}
+        animate={isInView ? "animate" : "initial"}
+        className="pImg w-[40%] overflow-hidden rounded-[20px]"
+      >
+        <img
+          src={item.img}
+          alt={item.title}
+          className="h-full w-full object-cover"
+        />
+      </motion.div>
+      <motion.div
+        variants={textVariants}
+        animate={isInView ? "animate" : "initial"}
+        className="pText flex w-[40%] flex-col gap-6"
+      >
+        <motion.h1 variants={textVariants} className="text-[56px]">
+          {item.title}
+        </motion.h1>
+        <motion.p variants={textVariants} className="font-light">
+          {item.desc}
+        </motion.p>
+        <motion.a variants={textVariants} href={item.link}>
+          <button className="cursor-pointer rounded-[10px] border-none bg-pink-500 p-3 font-medium">
+            View Project
+          </button>
+        </motion.a>
+      </motion.div>
+    </div>
+  );
+};
+
+const Portfolio = () => {
+  const [containerDistance, setContainerDistance] = useState(0);
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({ target: ref });
+  const xTranslate = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -window.innerWidth * items.length],
+  );
+
+  useEffect(() => {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      setContainerDistance(rect.left);
+    }
+  }, []);
+
+  return (
+    <div className="portfolio relative h-[600vh]" ref={ref}>
+      <motion.div
+        className="pList sticky top-0 flex h-[100vh] w-max"
+        style={{ x: xTranslate }}
+      >
+        <div
+          className="empty"
+          style={{
+            width: window.innerWidth - containerDistance,
+          }}
+        />
+        {items.map((item) => (
+          <ListItem item={item} key={item.id} />
+        ))}
+      </motion.div>
+      <section />
+      <section />
+      <section />
+      <section />
+
+      <div className="pProgress sticky bottom-[80%] left-0 h-[80px] w-[80px]">
+        <svg width="100%" height="100%" viewBox="0 0 160 160">
+          <circle
+            cx="80"
+            cy="80"
+            r="70"
+            fill="none"
+            stroke="#ddd"
+            strokeWidth={20}
+          />
+          <motion.circle
+            cx="80"
+            cy="80"
+            r="70"
+            fill="none"
+            stroke="#dd4c62"
+            strokeWidth={20}
+            transform="rotate(-90 80 80)"
+          />
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+export default Portfolio;

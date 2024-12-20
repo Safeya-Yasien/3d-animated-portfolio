@@ -9,9 +9,9 @@ const App = () => {
       <section className="">
         <Services />
       </section>
-      <section className="bg-yellow-400">
+      {/* <section className=""> */}
         <Portfolio />
-      </section>
+      {/* </section> */}
       <section className="bg-green-400">
         <Contact />
       </section>
